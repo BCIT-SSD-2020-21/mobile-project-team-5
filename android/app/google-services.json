@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "965576876555",
+    "project_id": "game-stock-android",
+    "storage_bucket": "game-stock-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965576876555:android:eaf6e4beee161097f35d0e",
+        "android_client_info": {
+          "package_name": "com.gamestock.gokayabay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965576876555-bh5r3tfd42cg6ou7uhi04blmngnen2bh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbWeOnkEMvyIOFovo0bs6OrSoS43cCi3U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965576876555-bh5r3tfd42cg6ou7uhi04blmngnen2bh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
