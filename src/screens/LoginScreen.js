@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import {
   Container,
   Header,
@@ -7,34 +7,51 @@ import {
   Item,
   Input,
   Label,
-  Button,
 } from "native-base"
 
-import { View, Text, StyleSheet } from "react-native"
+import { AuthContext } from "../context/AuthProvider"
+
+import { View, Text, StyleSheet, SafeAreaView, Button } from "react-native"
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler"
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
+  const { register } = useContext(AuthContext)
+
   return (
-    <Container>
-      <Content>
+    <SafeAreaView>
+      <TextInput
+        style={styles.input}
+        onChangeText={(email) => setEmail(email)}
+        value={email}
+      />
+      <TextInput
+        style={styles.input}
+        onChangeText={(password) => setPassword(password)}
+        value={password}
+        placeholder="password"
+        keyboardType="numeric"
+      />
+      <Button title="Sign up" onPress={() => register(email, password)} />
+
+      {/* <Content>
         <Form>
-          <Item fixedLabel>
-            <Label>Email</Label>
-            <Input onChange={(text) => setEmail(text)} />
-          </Item>
-          <Item fixedLabel last>
-            <Label>Password</Label>
-            <Input />
-          </Item>
-          <Button block light>
-            <Text>Sign In</Text>
-          </Button>
+        <Item fixedLabel>
+        <Label>Email</Label>
+        <Input onChange={(text) => setEmail(text)} />
+        </Item>
+        <Item fixedLabel last>
+        <Label>Password</Label>
+        <Input />
+        </Item>
+        <Button block light>
+        <Text>Sign In</Text>
+        </Button>
         </Form>
-      </Content>
-    </Container>
+      </Content> */}
+    </SafeAreaView>
   )
 }
 
@@ -57,6 +74,11 @@ const styles = StyleSheet.create({
   inputText: {
     height: 50,
     color: "white",
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
   },
 })
 
