@@ -14,11 +14,11 @@ import { AuthContext } from "../context/AuthProvider"
 import { View, Text, StyleSheet, SafeAreaView, Button } from "react-native"
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler"
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const { register } = useContext(AuthContext)
+  const { login } = useContext(AuthContext)
 
   return (
     <SafeAreaView>
@@ -34,7 +34,14 @@ const LoginScreen = () => {
         placeholder="password"
         keyboardType="numeric"
       />
-      <Button title="Sign up" onPress={() => register(email, password)} />
+      <Button title="Login" onPress={() => login(email, password)} />
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Register")
+        }}
+      >
+        <Text>Don't have an account?</Text>
+      </TouchableOpacity>
 
       {/* <Content>
         <Form>
